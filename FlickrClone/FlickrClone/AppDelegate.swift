@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        clearImageCache()
         return true
     }
 
@@ -41,6 +41,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    //MARK : - Clear cached images
+    func clearImageCache() {
+        let fileManager = FileManager.default
+        guard let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        let filePath = String(describing: documentDirectory).replacingOccurrences(of: "file:///", with: "")
+        do {
+            let imageContents = try fileManager.contentsOfDirectory(atPath: filePath)
+            for imagePath in imageContents {
+                if imagePath.contains("jpg") {
+                    try fileManager.removeItem(atPath: filePath + imagePath)
+                }
+            }
+        } catch {
+            print("No images to delete")
+        }
+    }
 
 }
 

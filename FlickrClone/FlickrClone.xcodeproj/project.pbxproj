@@ -7,17 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD094D3720F10E0C006FF194 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD094D3620F10E0C006FF194 /* ImageCacheManager.swift */; };
+		DD10561A20F099CB008886C2 /* WebServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10561920F099CB008886C2 /* WebServiceManager.swift */; };
+		DD10561C20F09AD4008886C2 /* ImageListingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10561B20F09AD4008886C2 /* ImageListingInteractor.swift */; };
+		DD7B700720EFF13600905443 /* ImageListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7B700620EFF13600905443 /* ImageListingViewModel.swift */; };
+		DD7B700A20EFF17A00905443 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7B700820EFF17A00905443 /* ImageCollectionViewCell.swift */; };
+		DD7B700B20EFF17A00905443 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD7B700920EFF17A00905443 /* ImageCollectionViewCell.xib */; };
+		DD7B700D20EFF20D00905443 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7B700C20EFF20D00905443 /* ResponseModel.swift */; };
+		DD7B701220EFF40F00905443 /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7B701120EFF40F00905443 /* Foundation+Extension.swift */; };
+		DD7B701420F004B700905443 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7B701320F004B700905443 /* NetworkConstants.swift */; };
 		DDDDAAAC20EE923800033368 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDDAAAB20EE923800033368 /* AppDelegate.swift */; };
-		DDDDAAAE20EE923800033368 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDDAAAD20EE923800033368 /* GalleryViewController.swift */; };
+		DDDDAAAE20EE923800033368 /* ImageListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDDAAAD20EE923800033368 /* ImageListingViewController.swift */; };
 		DDDDAAB120EE923800033368 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDDDAAAF20EE923800033368 /* Main.storyboard */; };
 		DDDDAAB320EE923800033368 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDDDAAB220EE923800033368 /* Assets.xcassets */; };
 		DDDDAAB620EE923800033368 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDDDAAB420EE923800033368 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD094D3620F10E0C006FF194 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
+		DD10561920F099CB008886C2 /* WebServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceManager.swift; sourceTree = "<group>"; };
+		DD10561B20F09AD4008886C2 /* ImageListingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListingInteractor.swift; sourceTree = "<group>"; };
+		DD7B700620EFF13600905443 /* ImageListingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListingViewModel.swift; sourceTree = "<group>"; };
+		DD7B700820EFF17A00905443 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		DD7B700920EFF17A00905443 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		DD7B700C20EFF20D00905443 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
+		DD7B701120EFF40F00905443 /* Foundation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
+		DD7B701320F004B700905443 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		DDDDAAA820EE923800033368 /* FlickrClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDDDAAAB20EE923800033368 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DDDDAAAD20EE923800033368 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		DDDDAAAD20EE923800033368 /* ImageListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListingViewController.swift; sourceTree = "<group>"; };
 		DDDDAAB020EE923800033368 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDDDAAB220EE923800033368 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDDDAAB520EE923800033368 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -35,6 +53,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD094D3820F15EC7006FF194 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD7B700C20EFF20D00905443 /* ResponseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD094D3920F15ED0006FF194 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DD7B700620EFF13600905443 /* ImageListingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DD094D3A20F15EDC006FF194 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DDDDAAAD20EE923800033368 /* ImageListingViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DD094D3B20F15EF0006FF194 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				DD10561B20F09AD4008886C2 /* ImageListingInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		DD094D3C20F15F01006FF194 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD7B700820EFF17A00905443 /* ImageCollectionViewCell.swift */,
+				DD7B700920EFF17A00905443 /* ImageCollectionViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD7B700E20EFF22500905443 /* Webservice */ = {
+			isa = PBXGroup;
+			children = (
+				DD10561920F099CB008886C2 /* WebServiceManager.swift */,
+				DD094D3620F10E0C006FF194 /* ImageCacheManager.swift */,
+			);
+			path = Webservice;
+			sourceTree = "<group>";
+		};
 		DDDDAA9F20EE923800033368 = {
 			isa = PBXGroup;
 			children = (
@@ -54,9 +122,16 @@
 		DDDDAAAA20EE923800033368 /* FlickrClone */ = {
 			isa = PBXGroup;
 			children = (
-				DDDDAAAB20EE923800033368 /* AppDelegate.swift */,
-				DDDDAAAD20EE923800033368 /* GalleryViewController.swift */,
+				DD094D3C20F15F01006FF194 /* View */,
+				DD094D3B20F15EF0006FF194 /* Interactor */,
+				DD094D3A20F15EDC006FF194 /* Controller */,
+				DD094D3920F15ED0006FF194 /* ViewModel */,
+				DD094D3820F15EC7006FF194 /* Model */,
+				DD7B700E20EFF22500905443 /* Webservice */,
 				DDDDAAAF20EE923800033368 /* Main.storyboard */,
+				DDDDAAAB20EE923800033368 /* AppDelegate.swift */,
+				DD7B701120EFF40F00905443 /* Foundation+Extension.swift */,
+				DD7B701320F004B700905443 /* NetworkConstants.swift */,
 				DDDDAAB220EE923800033368 /* Assets.xcassets */,
 				DDDDAAB420EE923800033368 /* LaunchScreen.storyboard */,
 				DDDDAAB720EE923800033368 /* Info.plist */,
@@ -125,6 +200,7 @@
 			files = (
 				DDDDAAB620EE923800033368 /* LaunchScreen.storyboard in Resources */,
 				DDDDAAB320EE923800033368 /* Assets.xcassets in Resources */,
+				DD7B700B20EFF17A00905443 /* ImageCollectionViewCell.xib in Resources */,
 				DDDDAAB120EE923800033368 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,8 +212,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDDDAAAE20EE923800033368 /* GalleryViewController.swift in Sources */,
+				DD7B701220EFF40F00905443 /* Foundation+Extension.swift in Sources */,
+				DD10561C20F09AD4008886C2 /* ImageListingInteractor.swift in Sources */,
+				DDDDAAAE20EE923800033368 /* ImageListingViewController.swift in Sources */,
+				DD094D3720F10E0C006FF194 /* ImageCacheManager.swift in Sources */,
+				DD7B700720EFF13600905443 /* ImageListingViewModel.swift in Sources */,
+				DD7B700D20EFF20D00905443 /* ResponseModel.swift in Sources */,
+				DD7B700A20EFF17A00905443 /* ImageCollectionViewCell.swift in Sources */,
+				DD10561A20F099CB008886C2 /* WebServiceManager.swift in Sources */,
 				DDDDAAAC20EE923800033368 /* AppDelegate.swift in Sources */,
+				DD7B701420F004B700905443 /* NetworkConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +360,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FlickrClone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.developer.bharatbhushan.FlickrClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -290,6 +375,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FlickrClone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.developer.bharatbhushan.FlickrClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
