@@ -13,7 +13,7 @@
         <!--Flickr-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Flickr" id="BYZ-38-t0r" customClass="ImageListingViewController" customModule="FlickrClone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImageListingViewController" title="Flickr" id="BYZ-38-t0r" customClass="ImageListingViewController" customModule="FlickrClone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,7 +71,7 @@
         <!--Navigation Controller-->
         <scene sceneID="E4C-Up-Gwd">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="llz-lo-tdA" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="llz-lo-tdA" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pwW-fw-wiz">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
