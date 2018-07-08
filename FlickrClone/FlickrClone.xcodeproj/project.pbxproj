@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD01A6ED20F2184000278205 /* FlickrCloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD01A6EC20F2184000278205 /* FlickrCloneTests.swift */; };
 		DD094D3720F10E0C006FF194 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD094D3620F10E0C006FF194 /* ImageCacheManager.swift */; };
 		DD10561A20F099CB008886C2 /* WebServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10561920F099CB008886C2 /* WebServiceManager.swift */; };
 		DD10561C20F09AD4008886C2 /* ImageListingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10561B20F09AD4008886C2 /* ImageListingInteractor.swift */; };
@@ -16,6 +17,10 @@
 		DD7B700D20EFF20D00905443 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7B700C20EFF20D00905443 /* ResponseModel.swift */; };
 		DD7B701220EFF40F00905443 /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7B701120EFF40F00905443 /* Foundation+Extension.swift */; };
 		DD7B701420F004B700905443 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7B701320F004B700905443 /* NetworkConstants.swift */; };
+		DDAA75FE20F244A300D9FC47 /* ListingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAA75FD20F244A300D9FC47 /* ListingViewModelTests.swift */; };
+		DDAA760220F24C7700D9FC47 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAA760120F24C7700D9FC47 /* ModelTests.swift */; };
+		DDAF70DA20F23C260068CF86 /* FoundationExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAF70D920F23C260068CF86 /* FoundationExtensionTests.swift */; };
+		DDAF70DC20F23DFD0068CF86 /* ImageCacheManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAF70DB20F23DFD0068CF86 /* ImageCacheManagerTests.swift */; };
 		DDDDAAAC20EE923800033368 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDDAAAB20EE923800033368 /* AppDelegate.swift */; };
 		DDDDAAAE20EE923800033368 /* ImageListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDDAAAD20EE923800033368 /* ImageListingViewController.swift */; };
 		DDDDAAB120EE923800033368 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDDDAAAF20EE923800033368 /* Main.storyboard */; };
@@ -23,7 +28,20 @@
 		DDDDAAB620EE923800033368 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDDDAAB420EE923800033368 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		DD01A6E720F215BC00278205 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDDDAAA020EE923800033368 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDDDAAA720EE923800033368;
+			remoteInfo = FlickrClone;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		DD01A6E220F215BC00278205 /* FlickrCloneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlickrCloneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD01A6E620F215BC00278205 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD01A6EC20F2184000278205 /* FlickrCloneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrCloneTests.swift; sourceTree = "<group>"; };
 		DD094D3620F10E0C006FF194 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		DD10561920F099CB008886C2 /* WebServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceManager.swift; sourceTree = "<group>"; };
 		DD10561B20F09AD4008886C2 /* ImageListingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListingInteractor.swift; sourceTree = "<group>"; };
@@ -33,6 +51,10 @@
 		DD7B700C20EFF20D00905443 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		DD7B701120EFF40F00905443 /* Foundation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
 		DD7B701320F004B700905443 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		DDAA75FD20F244A300D9FC47 /* ListingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewModelTests.swift; sourceTree = "<group>"; };
+		DDAA760120F24C7700D9FC47 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
+		DDAF70D920F23C260068CF86 /* FoundationExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExtensionTests.swift; sourceTree = "<group>"; };
+		DDAF70DB20F23DFD0068CF86 /* ImageCacheManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManagerTests.swift; sourceTree = "<group>"; };
 		DDDDAAA820EE923800033368 /* FlickrClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDDDAAAB20EE923800033368 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDDDAAAD20EE923800033368 /* ImageListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListingViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +65,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DD01A6DF20F215BC00278205 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DDDDAAA520EE923800033368 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -53,6 +82,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD01A6E320F215BC00278205 /* FlickrCloneTests */ = {
+			isa = PBXGroup;
+			children = (
+				DD01A6EC20F2184000278205 /* FlickrCloneTests.swift */,
+				DDAF70D920F23C260068CF86 /* FoundationExtensionTests.swift */,
+				DDAF70DB20F23DFD0068CF86 /* ImageCacheManagerTests.swift */,
+				DDAA75FD20F244A300D9FC47 /* ListingViewModelTests.swift */,
+				DDAA760120F24C7700D9FC47 /* ModelTests.swift */,
+				DD01A6E620F215BC00278205 /* Info.plist */,
+			);
+			path = FlickrCloneTests;
+			sourceTree = "<group>";
+		};
 		DD094D3820F15EC7006FF194 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				DDDDAAAA20EE923800033368 /* FlickrClone */,
+				DD01A6E320F215BC00278205 /* FlickrCloneTests */,
 				DDDDAAA920EE923800033368 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -115,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				DDDDAAA820EE923800033368 /* FlickrClone.app */,
+				DD01A6E220F215BC00278205 /* FlickrCloneTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,6 +186,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		DD01A6E120F215BC00278205 /* FlickrCloneTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD01A6EB20F215BC00278205 /* Build configuration list for PBXNativeTarget "FlickrCloneTests" */;
+			buildPhases = (
+				DD01A6DE20F215BC00278205 /* Sources */,
+				DD01A6DF20F215BC00278205 /* Frameworks */,
+				DD01A6E020F215BC00278205 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD01A6E820F215BC00278205 /* PBXTargetDependency */,
+			);
+			name = FlickrCloneTests;
+			productName = FlickrCloneTests;
+			productReference = DD01A6E220F215BC00278205 /* FlickrCloneTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DDDDAAA720EE923800033368 /* FlickrClone */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DDDDAABA20EE923800033368 /* Build configuration list for PBXNativeTarget "FlickrClone" */;
@@ -169,6 +231,11 @@
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Bharat Bhushan";
 				TargetAttributes = {
+					DD01A6E120F215BC00278205 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DDDDAAA720EE923800033368;
+					};
 					DDDDAAA720EE923800033368 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
@@ -189,11 +256,19 @@
 			projectRoot = "";
 			targets = (
 				DDDDAAA720EE923800033368 /* FlickrClone */,
+				DD01A6E120F215BC00278205 /* FlickrCloneTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DD01A6E020F215BC00278205 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DDDDAAA620EE923800033368 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -208,6 +283,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DD01A6DE20F215BC00278205 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDAF70DC20F23DFD0068CF86 /* ImageCacheManagerTests.swift in Sources */,
+				DD01A6ED20F2184000278205 /* FlickrCloneTests.swift in Sources */,
+				DDAF70DA20F23C260068CF86 /* FoundationExtensionTests.swift in Sources */,
+				DDAA760220F24C7700D9FC47 /* ModelTests.swift in Sources */,
+				DDAA75FE20F244A300D9FC47 /* ListingViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DDDDAAA420EE923800033368 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -226,6 +313,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DD01A6E820F215BC00278205 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDDDAAA720EE923800033368 /* FlickrClone */;
+			targetProxy = DD01A6E720F215BC00278205 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DDDDAAAF20EE923800033368 /* Main.storyboard */ = {
@@ -247,6 +342,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		DD01A6E920F215BC00278205 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FlickrCloneTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.developer.bharatbhushan.FlickrCloneTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlickrClone.app/FlickrClone";
+			};
+			name = Debug;
+		};
+		DD01A6EA20F215BC00278205 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FlickrCloneTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.developer.bharatbhushan.FlickrCloneTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlickrClone.app/FlickrClone";
+			};
+			name = Release;
+		};
 		DDDDAAB820EE923800033368 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -387,6 +512,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DD01A6EB20F215BC00278205 /* Build configuration list for PBXNativeTarget "FlickrCloneTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD01A6E920F215BC00278205 /* Debug */,
+				DD01A6EA20F215BC00278205 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DDDDAAA320EE923800033368 /* Build configuration list for PBXProject "FlickrClone" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

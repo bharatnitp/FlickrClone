@@ -121,7 +121,7 @@ extension ImageListingViewController: ImageListingViewModelDelegate {
     
     func didFailToFetchImageList(message: String) {
         activityIndicator.stopAnimating()
-        if viewModel.curentPageIndex == 1 {
+        if viewModel.currentPageIndex == 1 {
             let title: String = "Error"
             showAlert(withTitle: title, message: message)
         }

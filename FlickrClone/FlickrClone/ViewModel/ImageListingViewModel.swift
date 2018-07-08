@@ -44,13 +44,13 @@ class ImageListingViewModel {
     var searchText: String
     
     //current page index to lookup the images on server
-    var curentPageIndex: Int
+    var currentPageIndex: Int
     
     /// Boolean to track whether an API call progress
-    fileprivate var isNextPageRequestInProgress: Bool
+    var isNextPageRequestInProgress: Bool
     
     /// interface to fetch the images from  source
-    fileprivate var interactor: ImageListingInteractor?
+    var interactor: ImageListingInteractor?
     
     weak var delegate: ImageListingViewModelDelegate?
     
@@ -64,7 +64,7 @@ class ImageListingViewModel {
         images = [ImageItem]()
         self.delegate = delegate
         searchText = ""
-        curentPageIndex = 1
+        currentPageIndex = 1
         isNextPageRequestInProgress = false
     }
     
@@ -96,7 +96,7 @@ class ImageListingViewModel {
                 self.searchText = searchText
                 images.removeAll()
                 if !searchText.isEmpty {
-                    curentPageIndex = 1
+                    currentPageIndex = 1
                     getImageList()
                 }
         } else {
@@ -114,8 +114,8 @@ class ImageListingViewModel {
     func searchImagesForNextPage() -> Bool {
         var isRequestStarted = false
         if (isNextPageRequestInProgress == false) && (self.searchText.isEmpty == false) {
-            if let responseModel = responseModel, let totalPages = Int(responseModel.metadata.total), totalPages > curentPageIndex {
-                curentPageIndex += 1
+            if let responseModel = responseModel, let totalPages = Int(responseModel.metadata.total), totalPages > currentPageIndex {
+                currentPageIndex += 1
                 isNextPageRequestInProgress = true
                 isRequestStarted = true
                 getImageList()
@@ -132,7 +132,7 @@ class ImageListingViewModel {
     
     private func getImageList() {
         
-        interactor?.updateRequestParameters(page: curentPageIndex, searchText: searchText)
+        interactor?.updateRequestParameters(page: currentPageIndex, searchText: searchText)
         
         interactor?.getImageList(completion: {[weak self] (response) in
             
@@ -145,14 +145,14 @@ class ImageListingViewModel {
                 if let images = dataModel?.metadata.imageItems {
                     weakSelf.images.append(contentsOf: images)
                 }
-                if weakSelf.curentPageIndex == 1 {
+                if weakSelf.currentPageIndex == 1 {
                     weakSelf.responseModel = dataModel
                 }
                 weakSelf.delegate?.updateImageListing()
             
             case .failure(let error):
-                if weakSelf.curentPageIndex > 1 {
-                    weakSelf.curentPageIndex -= 1
+                if weakSelf.currentPageIndex > 1 {
+                    weakSelf.currentPageIndex -= 1
                 }
                 weakSelf.delegate?.didFailToFetchImageList(message: error.localizedDescription)
             }
