@@ -7,10 +7,15 @@
 //  Copyright © 2018 Bharat Bhushan. All rights reserved.
 //
 
+
+
 import UIKit
 
 class ImageCacheManager: APIRequest, WebServiceManager {
 
+    
+    /// APIRequest protocol variables
+    
     var requestBody: Data?
     var headers: [String : String]?
     var url: URL?
@@ -19,6 +24,14 @@ class ImageCacheManager: APIRequest, WebServiceManager {
     }
     
     private let fileManager = FileManager.default
+    
+    
+    /// Fetch image either from cache or from server
+    ///
+    /// - Parameters:
+    ///   - imageId: Unique key to identify an image
+    ///   - url: HTTP URL
+    ///   - completion: API response, data or error
     
     func loadImage(imageId: String, url: URL, completion: @escaping (Response<Data?, APIError>) -> Void) {
         if imageExistsInCache(imageId: imageId) {
@@ -33,11 +46,25 @@ class ImageCacheManager: APIRequest, WebServiceManager {
         }
     }
     
+    
+    /// Get the path of document directory
+    ///
+    /// - Parameter
+    /// - imageId: Unique key to identify an image
+    /// - Returns: path where image is stored
+    
     private func imagePath(_ imageId: String) -> URL? {
         let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         let filePath = documentDirectory?.appendingPathComponent("\(imageId)").appendingPathExtension("jpg")
         return filePath
     }
+    
+    
+    /// Check whether image is present in Cache or not
+    ///
+    /// - Parameter
+    /// - imageId: Unique key to identify an image
+    /// - Returns: Boolean type (true or false)
     
     private func imageExistsInCache(imageId: String) -> Bool {
         guard let imagePath = imagePath(imageId)  else { return false }
@@ -47,6 +74,13 @@ class ImageCacheManager: APIRequest, WebServiceManager {
         }
         return false
     }
+    
+    
+    /// Store imahe in cache
+    ///
+    /// - Parameters:
+    ///   - imageId: Unique key to identify an image
+    ///   - imageData: image data
     
     func cacheImage(imageId: String, imageData: Data) {
         if imageExistsInCache(imageId: imageId) {
@@ -61,6 +95,12 @@ class ImageCacheManager: APIRequest, WebServiceManager {
             print(error)
         }
     }
+    
+    /// Fetch image from cache
+    ///
+    /// - Parameters
+    /// - imageId: Unique key to identify an image
+    /// - Returns:  image data if present in cache
     
     private func fetchImagefromCache(imageId: String) -> Data? {
         guard let path = imagePath(imageId) else { return nil }

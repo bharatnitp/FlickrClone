@@ -35,6 +35,8 @@ class ImageListingViewController: UIViewController {
     }
 }
 
+//MARK: CollectionView delegate and datasource methods
+
 extension ImageListingViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -49,6 +51,8 @@ extension ImageListingViewController: UICollectionViewDataSource, UICollectionVi
         return cell
     }
 }
+
+//MARK: - UICollectionViewDelegateFlowLayout method to calculate the size of an item
 
 extension ImageListingViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -68,7 +72,8 @@ extension ImageListingViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-//MARK:- UISearchBarDelegate Search Bar intercation Methods
+//MARK:- UISearchBarDelegate Search Bar delegate methods
+
 extension ImageListingViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -88,7 +93,8 @@ extension ImageListingViewController: UISearchBarDelegate {
     }
 }
 
-//MARK:- UIScrollViewDelegate
+//MARK:- UIScrollViewDelegate method to handle auto scrolling
+
 extension ImageListingViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -101,6 +107,7 @@ extension ImageListingViewController: UIScrollViewDelegate {
     }
 }
 
+//MARK: ViewModel delegate method
 
 extension ImageListingViewController: ImageListingViewModelDelegate {
     func updateImageListing() {

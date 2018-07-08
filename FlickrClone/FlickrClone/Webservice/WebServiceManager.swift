@@ -6,12 +6,22 @@
 //  Copyright © 2018 Bharat Bhushan. All rights reserved.
 //
 
+
 import UIKit
+
+
+/// API Response
+///
+/// - success: Success response generic type
+/// - failure: Error, which contains localized descrition of error
 
 enum Response<T, E> where E: Error {
     case success(T)
     case failure(E)
 }
+
+
+/// Error types
 
 enum APIError: Error {
     
@@ -22,11 +32,11 @@ enum APIError: Error {
     case jsonParsingFailure
     var localizedDescription: String {
         switch self {
-            case .requestFailed: return "Request Failed"
-            case .invalidData: return "Invalid Data"
-            case .responseUnsuccessful: return "Response Unsuccessful"
-            case .jsonParsingFailure: return "JSON Parsing Failure"
-            case .jsonConversionFailure: return "JSON Conversion Failure"
+        case .requestFailed: return "Request Failed"
+        case .invalidData: return "Invalid Data"
+        case .responseUnsuccessful: return "Response Unsuccessful"
+        case .jsonParsingFailure: return "JSON Parsing Failure"
+        case .jsonConversionFailure: return "JSON Conversion Failure"
         }
     }
 }
@@ -50,6 +60,8 @@ extension HTTPMethod {
     
 }
 
+
+/// HTTP request protocol
 protocol APIRequest {
     var url: URL? { get set }
     var httpMethod: HTTPMethod { get }
@@ -57,6 +69,8 @@ protocol APIRequest {
     var headers: [String: String]? { get }
 }
 
+
+// MARK: - HTTP request protocol extension
 extension APIRequest {
     
     var request: URLRequest {
@@ -68,8 +82,10 @@ extension APIRequest {
     }
 }
 
-protocol WebServiceManager {
 
+
+protocol WebServiceManager {
+    
     func fetch<T: Decodable>(with request: URLRequest, decode: @escaping (Decodable) -> T?, completion: @escaping (Response<T, APIError>) -> Void)
     func fetchImage(with request: URLRequest, completion: @escaping (Response<Data?, APIError>) -> Void)
 }
@@ -80,7 +96,16 @@ extension WebServiceManager {
     
     typealias completionHandler = (Decodable?, APIError?) -> Void
     typealias imageCompletionHandler = (Data?, APIError?) -> Void
-
+    
+    
+    /// Data Download task
+    ///
+    /// - Parameters:
+    ///   - request: HTTP Request
+    ///   - decodingType: model class or struct which must conform to Decodable protocol
+    ///   - completion: JSON response
+    /// - Returns: Data task
+    
     private func downloadTask<T: Decodable>(with request: URLRequest, decodingType: T.Type, completionHandler completion: @escaping completionHandler) -> URLSessionDataTask {
         
         let task = session.dataTask(with: request) { data, response, error in
@@ -106,6 +131,14 @@ extension WebServiceManager {
         return task
     }
     
+    
+    /// Image data download task
+    ///
+    /// - Parameters:
+    ///   - request: HTTP Request
+    ///   - completion: JSON response
+    /// - Returns: Download image task
+    
     private func downloadImageTask(with request: URLRequest, completionHandler completion: @escaping imageCompletionHandler) -> URLSessionDataTask {
         
         let task = session.dataTask(with: request) { data, response, error in
@@ -125,6 +158,14 @@ extension WebServiceManager {
         }
         return task
     }
+    
+    
+    /// HTTP request to fetch data from server
+    ///
+    /// - Parameters:
+    ///   - request: HTTPRequest
+    ///   - decode: model class or struct which must conform to Decodable protocol
+    ///   - completion: JSON response
     
     func fetch<T: Decodable>(with request: URLRequest, decode: @escaping (Decodable) -> T?, completion: @escaping (Response<T, APIError>) -> Void) {
         
@@ -147,6 +188,12 @@ extension WebServiceManager {
         }
         task.resume()
     }
+    
+    /// HTTP request to fetch image data from server
+    ///
+    /// - Parameters:
+    ///   - request: HTTPRequest
+    ///   - completion: JSON response
     
     func fetchImage(with request: URLRequest, completion: @escaping (Response<Data?, APIError>) -> Void) {
         let task = downloadImageTask(with: request) { (json , error) in
