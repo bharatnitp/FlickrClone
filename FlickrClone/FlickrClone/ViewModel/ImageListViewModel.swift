@@ -1,5 +1,5 @@
 //
-//  ImageListingViewModelDelegate.swift
+//  ImageListViewModelDelegate.swift
 //  FlickrClone
 //
 //  Created by Bharat Bhushan on 07/07/18.
@@ -11,12 +11,12 @@ import UIKit
 
 
 //MARK: - ViewModel protocol
-protocol ImageListingViewModelDelegate: class {
-    func updateImageListing()
+protocol ImageListViewModelDelegate: class {
+    func updateImageList()
     func didFailToFetchImageList(message: String)
 }
 
-class ImageListingViewModel {
+class ImageListViewModel {
     
     
     ///  number of columns to show in single row of collection view
@@ -50,17 +50,17 @@ class ImageListingViewModel {
     var isNextPageRequestInProgress: Bool
     
     /// interface to fetch the images from  source
-    var interactor: ImageListingInteractor?
+    var interactor: ImageListInteractor?
     
-    weak var delegate: ImageListingViewModelDelegate?
+    weak var delegate: ImageListViewModelDelegate?
     
     
     /// Initializer
     ///
     /// - Parameter delegate: delegate of view model
     
-    required init(delegate: ImageListingViewModelDelegate) {
-        interactor = ImageListingInteractor()
+    required init(delegate: ImageListViewModelDelegate) {
+        interactor = ImageListInteractor()
         images = [ImageItem]()
         self.delegate = delegate
         searchText = ""
@@ -148,7 +148,7 @@ class ImageListingViewModel {
                 if weakSelf.currentPageIndex == 1 {
                     weakSelf.responseModel = dataModel
                 }
-                weakSelf.delegate?.updateImageListing()
+                weakSelf.delegate?.updateImageList()
             
             case .failure(let error):
                 if weakSelf.currentPageIndex > 1 {

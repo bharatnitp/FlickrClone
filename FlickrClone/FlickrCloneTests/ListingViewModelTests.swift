@@ -1,5 +1,5 @@
 //
-//  ListingViewModelTests.swift
+//  ListViewModelTests.swift
 //  FlickrCloneTests
 //
 //  Created by Bharat Bhushan on 08/07/18.
@@ -9,15 +9,15 @@
 @testable import FlickrClone
 import XCTest
 
-final class ListingViewModelTests: XCTestCase {
+final class ListViewModelTests: XCTestCase {
     
     
-    private var viewModel: ImageListingViewModel!
+    private var viewModel: ImageListViewModel!
     
     override func setUp() {
         super.setUp()
-        let viewController = ImageListingViewController()
-        viewModel = ImageListingViewModel(delegate: viewController)
+        let viewController = ImageListViewController()
+        viewModel = ImageListViewModel(delegate: viewController)
         
         XCTAssertNotNil(viewModel)
         XCTAssertNotNil(viewModel.delegate)

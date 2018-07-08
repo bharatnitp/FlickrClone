@@ -1,5 +1,5 @@
 //
-//  ImageListingInteractor.swift
+//  ImageListInteractor.swift
 //  FlickrClone
 //
 //  Created by Bharat Bhushan on 07/07/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageListingInteractor: APIRequest, WebServiceManager {
+class ImageListInteractor: APIRequest, WebServiceManager {
     
     var requestBody: Data?
     var headers: [String : String]?

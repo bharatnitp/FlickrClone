@@ -11,8 +11,8 @@ import XCTest
 
 final class FlickrCloneTests: XCTestCase {
     
-    private var imageListingViewController: ImageListingViewController!
-    private var  viewModel: ImageListingViewModel!
+    private var ImageListViewController: ImageListViewController!
+    private var  viewModel: ImageListViewModel!
     private var images: [ImageItem]!
     
     override func setUp() {
@@ -20,11 +20,11 @@ final class FlickrCloneTests: XCTestCase {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let navigationController  = storyboard.instantiateViewController(withIdentifier: "navigationViewController") as? UINavigationController
-        imageListingViewController = navigationController?.viewControllers.first as? ImageListingViewController
+        ImageListViewController = navigationController?.viewControllers.first as? ImageListViewController
         
-        XCTAssertNotNil(imageListingViewController)
+        XCTAssertNotNil(ImageListViewController)
         
-        viewModel = ImageListingViewModel(delegate: imageListingViewController)
+        viewModel = ImageListViewModel(delegate: ImageListViewController)
         viewModel.searchText = ""
         viewModel.currentPageIndex = 1
         images = [ImageItem]()
@@ -35,11 +35,11 @@ final class FlickrCloneTests: XCTestCase {
     override func tearDown() {
 
         super.tearDown()
-        imageListingViewController = nil
+        ImageListViewController = nil
         viewModel = nil
         images = nil
         
-        XCTAssertNil(imageListingViewController)
+        XCTAssertNil(ImageListViewController)
         XCTAssertNil(viewModel)
         XCTAssertNil(images)
     }

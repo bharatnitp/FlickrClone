@@ -1,5 +1,5 @@
 //
-//  ImageListingViewController.swift
+//  ImageListViewController.swift
 //  FlickrClone
 //
 //  Created by Bharat Bhushan on 05/07/18.
@@ -8,17 +8,17 @@
 
 import UIKit
 
-class ImageListingViewController: UIViewController {
+class ImageListViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var viewModel: ImageListingViewModel!
+    var viewModel: ImageListViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = ImageListingViewModel(delegate: self)
+        viewModel = ImageListViewModel(delegate: self)
         configureSearchbar()
         registerCells()
     }
@@ -37,7 +37,7 @@ class ImageListingViewController: UIViewController {
 
 //MARK: CollectionView delegate and datasource methods
 
-extension ImageListingViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension ImageListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.totalNumberOfImages()
@@ -54,7 +54,7 @@ extension ImageListingViewController: UICollectionViewDataSource, UICollectionVi
 
 //MARK: - UICollectionViewDelegateFlowLayout method to calculate the size of an item
 
-extension ImageListingViewController: UICollectionViewDelegateFlowLayout {
+extension ImageListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let numberOfColumns = viewModel.numberOfColumns
@@ -74,7 +74,7 @@ extension ImageListingViewController: UICollectionViewDelegateFlowLayout {
 
 //MARK:- UISearchBarDelegate Search Bar delegate methods
 
-extension ImageListingViewController: UISearchBarDelegate {
+extension ImageListViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
@@ -95,7 +95,7 @@ extension ImageListingViewController: UISearchBarDelegate {
 
 //MARK:- UIScrollViewDelegate method to handle auto scrolling
 
-extension ImageListingViewController: UIScrollViewDelegate {
+extension ImageListViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)) {
@@ -109,8 +109,8 @@ extension ImageListingViewController: UIScrollViewDelegate {
 
 //MARK: ViewModel delegate method
 
-extension ImageListingViewController: ImageListingViewModelDelegate {
-    func updateImageListing() {
+extension ImageListViewController: ImageListViewModelDelegate {
+    func updateImageList() {
         activityIndicator.stopAnimating()
         if viewModel.totalNumberOfImages() == 0 {
             showAlert(withTitle: nil, message: "No results found")
