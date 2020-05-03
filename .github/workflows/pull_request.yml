@@ -18,7 +18,7 @@ jobs:
         source_branch: "release"                          # If blank, default: triggered branch
         destination_branch: "master"                      # If blank, default: master
         pr_title: "merge release into master"             # Title of pull request
-        pr_body: ":crown: *automated PR*"                 # Full markdown support, requires pr_title to be set
+        pr_body: "This PR is generated automatically by github-actions"                 # Full markdown support, requires pr_title to be set
         pr_reviewer: ""                                   # Comma-separated list (no spaces)
         pr_assignee: "bharatnitp"                         # Comma-separated list (no spaces)
         pr_label: "auto-pr"                               # Comma-separated list (no spaces)
