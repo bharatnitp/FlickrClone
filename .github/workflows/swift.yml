@@ -17,15 +17,6 @@ jobs:
     - name: Select xcode 11
       run: sudo xcode-select -switch /Applications/Xcode.app
       
-    - name: Navigate to project dicrectory
-      run: cd ..
-      
-    - name: PWD
-      run: pwd
-      
-    - name: list all
-      run: ls -a
-      
     - name: Build
-      run: xcodebuild -scheme FlickerClone FlickrClone.xcodeproj/ build
+      run: xcodebuild -scheme FlickrClone FlickrClone.xcodeproj/ build
       
