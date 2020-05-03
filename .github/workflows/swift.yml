@@ -18,5 +18,5 @@ jobs:
       run: sudo xcode-select -switch /Applications/Xcode.app
       
     - name: Build
-      run: xcodebuild -scheme FlickrClone FlickrClone.xcodeproj/ build
+      run: xcodebuild -scheme FlickrClone build
       
