@@ -19,8 +19,7 @@ jobs:
         destination_branch: "master"                      # If blank, default: master
         pr_title: "merge release into master"             # Title of pull request
         pr_body: ":crown: *automated PR*"                 # Full markdown support, requires pr_title to be set
-        #pr_template: ".github/PULL_REQUEST_TEMPLATE.md"  # Path to pull request template, requires pr_title to be set, excludes pr_body
-        pr_reviewer: "bharatnitp"                         # Comma-separated list (no spaces)
+        pr_reviewer: ""                                   # Comma-separated list (no spaces)
         pr_assignee: "bharatnitp"                         # Comma-separated list (no spaces)
         pr_label: "auto-pr"                               # Comma-separated list (no spaces)
         github_token: ${{ secrets.SECRET_TOKEN }}
