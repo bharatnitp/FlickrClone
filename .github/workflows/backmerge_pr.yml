@@ -3,13 +3,13 @@ on:
     branches: [ master ]
 
 jobs:
-    pull-request:
+    pull-request-into-release:
      runs-on: ubuntu-latest
 
      steps:
        - uses: actions/checkout@v2
 
-       - name: pull-request (master into staging)
+       - name: pull-request (master into release)
          uses: repo-sync/pull-request@v2
          with:
            source_branch: "master"                 
@@ -21,7 +21,12 @@ jobs:
            pr_label: "auto-pr"                        
            github_token: ${{ secrets.SECRET_TOKEN }}
 
+    pull-request-into-development:
+     runs-on: ubuntu-latest
 
+     steps:
+       - uses: actions/checkout@v2
+       
        - name: pull-request (master into development)
          uses: repo-sync/pull-request@v2
          with:
