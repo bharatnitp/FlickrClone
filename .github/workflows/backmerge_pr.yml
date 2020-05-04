@@ -5,6 +5,14 @@ on:
 jobs:
     pull-request-master-into-release:
      runs-on: ubuntu-latest
+    
+     env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+        JOB_CONTEXT: ${{ toJson(job) }}
+        run: |
+          echo "$GITHUB_CONTEXT"
+          echo "$JOB_CONTEXT"
+          
 
      steps:
        - name: checkout all branches 
@@ -19,7 +27,7 @@ jobs:
            pr_body: "This PR is generated automatically by github-actions"              
            pr_reviewer: ""                                          
            pr_assignee: "BharatBhushan01"                  
-           pr_label: "auto-pr"                        
+           pr_label: "Release,auto_pr"                     
            github_token: ${{ secrets.SECRET_TOKEN }}
        
     pull-request-master-into-staging:
@@ -39,7 +47,6 @@ jobs:
            pr_body: "This PR is generated automatically by github-actions"              
            pr_reviewer: ""                                          
            pr_assignee: "BharatBhushan01"                 
-           pr_label: "auto-pr"                        
+           pr_label: "Release,auto_pr"
            github_token: ${{ secrets.SECRET_TOKEN }}
-
         
