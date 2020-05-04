@@ -8,11 +8,8 @@ jobs:
     
      env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
-        JOB_CONTEXT: ${{ toJson(pull-request-master-into-release) }}
         run: |
-          echo "$GITHUB_CONTEXT"
-          echo "$JOB_CONTEXT"
-          
+          echo "$GITHUB_CONTEXT"          
 
      steps:
        - name: checkout all branches 
