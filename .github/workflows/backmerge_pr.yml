@@ -5,7 +5,7 @@ on:
 jobs:
     pull-request-master-into-release:
      runs-on: ubuntu-latest
-
+     
      steps:
        - name: checkout all branches 
          uses: actions/checkout@v2
@@ -16,10 +16,10 @@ jobs:
            source_branch: "master"                 
            destination_branch:  "release"                               
            pr_title: "backmerge master into release"             
-           pr_body: "This PR is generated automatically by github-actions"              
-           pr_reviewer: ""                                          
+           pr_body: "$PR_DESCRIPTION"              
+           pr_reviewer: "BharatBhushan01"                                         
            pr_assignee: "BharatBhushan01"                  
-           pr_label: "auto-pr"                        
+           pr_label: "Release,auto_pr"                     
            github_token: ${{ secrets.SECRET_TOKEN }}
        
     pull-request-master-into-staging:
@@ -35,11 +35,33 @@ jobs:
          with:
            source_branch: "master"                 
            destination_branch:  "staging"                               
-           pr_title: "backmerge master into staging"
-           pr_body: "This PR is generated automatically by github-actions"              
-           pr_reviewer: ""                                          
+           pr_title: "backmerge master into staging" 
+           pr_body: "$PR_DESCRIPTION"
+           pr_reviewer: "BharatBhushan01"                                         
            pr_assignee: "BharatBhushan01"                 
-           pr_label: "auto-pr"                        
+           pr_label: "Release,auto_pr"
            github_token: ${{ secrets.SECRET_TOKEN }}
+          
+     
+ # Global environment variables
+env:
+    CONTEXT: ${{ toJson(github) }}
+    ACTOR:  ${{ github.actor }}
+    HEAD_REF: ${{ github.head_ref }}
+    BASE_REF: ${{ github.base_ref }}
+    AUTHOR_EMAIL: ${{ github.event.commits[0].author.email }}
+    AUTHOR_USERNAME: ${{ github.event.commits[0].author.username }}
+    COMMIT_MESSAGE: ${{ github.event.commits[0].message }}
+    TIME_STAMP: ${{ github.event.commits[0].timestamp }}
+    URL: ${{ github.event.commits[0].url }}
+    PR_DESCRIPTION: "This PR is automatically generated  by github-actions \n Creator: $ACTOR AUTHOR_EMAIL: $AUTHOR_EMAIL AUTHOR_USERNAME: $AUTHOR_USERNAME\n HEAD_REF: $HEAD_REF BASE_REF: $BASE_REF\n COMMIT_MESSAGE: $COMMIT_MESSAGE\n TIME_STAMP: $TIME_STAMP\n URL: $URL"
 
-        
+    run: |
+      echo $CONTEXT
+      echo $ACTOR
+      echo $HEAD_REF
+      echo $BASE_REF
+      echo $AUTHOR_EMAIL
+      echo $COMMIT_MESSAGE
+      echo $TIME_STAMP
+      echo $URL
