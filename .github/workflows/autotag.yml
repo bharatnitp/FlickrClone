@@ -14,15 +14,22 @@ jobs:
        with:
          token: ${{ secrets.SECRET_TOKEN }}
        
+     - name: Set github token
+       uses: fregante/setup-git-token@v1
+       with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+       
      - name: Push New Tag
        run: |
             
-            #setup github credentials
-            git config --global user.name "bharatnitp"
-            git config --global user.email "bbhushan322@gmail.com"
+            #git fetch 
+            git fetch -a
             
+            #checkout master
+            git checkout master
+           
             #get the latest tag from git
-            tag=$(echo "$(git describe --abbrev=0)")
+            tag=$(echo "$(git describe --abbrev=0 --tags)")
 
             current_version=$tag
 
