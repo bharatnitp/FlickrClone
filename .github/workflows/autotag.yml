@@ -1,17 +1,16 @@
-on: 
- push:
-  branches:
-    - [ master ]
-  tags-ignore:
-    - '*'
+on:
+  push:
+    branches: [ master ]
+    tags-ignore: 
+        - '*'
     
 jobs:
-  runs-on:
-   - ubuntu-latest
+ version-bump:
+  runs-on: ubuntu-latest
    
   steps:
      - name: Push New Tag
-     - run: |
+       run: |
             #get the latest tag from git
             tag=$(echo "$(git describe --abbrev=0)")
 
