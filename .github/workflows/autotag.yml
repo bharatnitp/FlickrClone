@@ -1,11 +1,11 @@
-on: 
- push:
-  branches:
-    - [ master ]
-  tags-ignore:
-    - '*'
+on:
+  push:
+    branches: [ master ]
+    tags-ignore: 
+        - '*'
     
 jobs:
+ version-bump:
   runs-on:
    - ubuntu-latest
    
