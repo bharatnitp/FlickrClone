@@ -10,7 +10,7 @@ jobs:
    
   steps:
      - name: Push New Tag
-     - run: |
+       run: |
             #get the latest tag from git
             tag=$(echo "$(git describe --abbrev=0)")
 
