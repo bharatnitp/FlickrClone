@@ -23,5 +23,18 @@ jobs:
         pr_assignee: "bharatnitp"                         # Comma-separated list (no spaces)
         pr_label: "auto-pr"                               # Comma-separated list (no spaces)
         github_token: ${{ secrets.SECRET_TOKEN }}
+        
+        
+# Global environment variables
+env:
+    CONTEXT: ${{ toJson(github) }}
+    ACTOR:  ${{ github.actor }}
+    HEAD_REF: ${{ github.head_ref }}
+    BASE_REF: ${{ github.base_ref }}
+    AUTHOR_EMAIL: ${{ github.event.commits[0].author.email }}
+    AUTHOR_USERNAME: ${{ github.event.commits[0].author.username }}
+    COMMIT_MESSAGE: ${{ github.event.commits[0].message }}
+    TIME_STAMP: ${{ github.event.commits[0].timestamp }}
+    URL: ${{ github.event.commits[0].url }}
     
     
