@@ -11,11 +11,25 @@ jobs:
   steps:
      - name: Checkout
        uses: actions/checkout@v2
+       with:
+         token: ${{ secrets.SECRET_TOKEN }}
+       
+     - name: Set github token
+       uses: fregante/setup-git-token@v1
+       with:
+        token: ${{ secrets.GITHUB_TOKEN }}
        
      - name: Push New Tag
        run: |
+            
+            #git fetch 
+            git fetch -a
+            
+            #checkout master
+            git checkout master
+           
             #get the latest tag from git
-            tag=$(echo "$(git describe --abbrev=0)")
+            tag=$(echo "$(git describe --abbrev=0 --tags)")
 
             current_version=$tag
 
@@ -26,10 +40,12 @@ jobs:
             new_version=$(echo $version 0.1 | awk '{printf "%.1f", $1 + $2}')
             echo $new_version
 
-            #form new version with current date
-            updated_version=$(echo "R-ATV-$(date -d "+330 min" +"%d.%m.%y")-v$new_version")
-            echo $updated_version
+            # new version with current date
+            release_tag=$(echo "R-ATV-$(date -d "+330 min" +"%d.%m.%y")-v$new_version")
+            echo $release_tag
             
             #push new tag to git
-            git tag -a  $updated_version
+            git tag -a  $release_tag
+            
+            
 
