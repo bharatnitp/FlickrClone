@@ -15,10 +15,11 @@ jobs:
          token: ${{ secrets.SECRET_TOKEN }}
        
      - name: Push New Tag
-       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-            # set github token 
+       run: |
+            
+            #setup github credentials
+            git config --global user.name "bharatnitp"
+            git config --global user.email "bbhushan322@gmail.com"
             
             #get the latest tag from git
             tag=$(echo "$(git describe --abbrev=0)")
