@@ -60,7 +60,7 @@ env:
     AUTHOR_EMAIL: ${{ github.event.commits[0].author.email }}
     AUTHOR_USERNAME: ${{ github.event.commits[0].author.username }}
     COMMIT_MESSAGE: ${{ github.event.commits[0].message }}
-    TIME_STAMP: ${{ gthub.event.commits[0].timestamp }}
+    TIME_STAMP: ${{ github.event.commits[0].timestamp }}
     URL: ${{ github.event.commits[0].url }}
     
 
