@@ -5,7 +5,7 @@ on:
         - '*'
     
 jobs:
- version-bump:
+ create-release-tag:
   runs-on: ubuntu-latest
    
   steps:
@@ -32,7 +32,7 @@ jobs:
             git pull origin
            
             #get the latest tag from git
-            tag=$(echo "$(git describe --abbrev=0 --tags)")
+            tag=$(echo "$(git describe --tags $(git rev-list --tags --max-count=1))")
             echo tag: $tag
 
             current_version=$tag
