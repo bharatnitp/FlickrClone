@@ -27,6 +27,9 @@ jobs:
             
             #checkout master
             git checkout master
+            
+            #git pull
+            git pull origin
            
             #get the latest tag from git
             tag=$(echo "$(git describe --abbrev=0 --tags)")
