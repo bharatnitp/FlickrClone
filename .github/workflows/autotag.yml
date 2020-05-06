@@ -5,7 +5,7 @@ on:
         - '*'
     
 jobs:
- version-bump:
+ create-release-tag:
   runs-on: ubuntu-latest
    
   steps:
@@ -27,25 +27,30 @@ jobs:
             
             #checkout master
             git checkout master
+            
+            #git pull
+            git pull origin
            
             #get the latest tag from git
-            tag=$(echo "$(git describe --abbrev=0 --tags)")
+            tag=$(echo "$(git describe --tags $(git rev-list --tags --max-count=1))")
+            echo tag: $tag
 
             current_version=$tag
 
-            #take the last 3 digits of the tag ex: 6.5
-            version=$(echo "${current_version: -3}")
+            #take the last version from tag ex: 6.5
+            version=$(echo "${current_version##*-v}")
+            echo version: $version
 
             #increment the version by 0.1
             new_version=$(echo $version 0.1 | awk '{printf "%.1f", $1 + $2}')
-            echo $new_version
+            echo new_version: $new_version
 
             # new version with current date
             release_tag=$(echo "R-ATV-$(date -d "+330 min" +"%d.%m.%y")-v$new_version")
-            echo $release_tag
+            echo release_tag: $release_tag
             
             #push new tag to git
-            git tag -a  $release_tag
-            
+            git tag -a  $release_tag -m " "
+        
             
 
