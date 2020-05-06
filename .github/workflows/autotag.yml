@@ -49,8 +49,11 @@ jobs:
             release_tag=$(echo "R-ATV-$(date -d "+330 min" +"%d.%m.%y")-v$new_version")
             echo release_tag: $release_tag
             
-            #push new tag to git
-            git tag -a  $release_tag -m " "
-        
+            #create a new tag
+            git tag -a  $release_tag -m "Release tag"
             
-
+            #push tag to git
+            git push origin $release_tag
+            
+        
+          
