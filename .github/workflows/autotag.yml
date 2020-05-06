@@ -33,8 +33,8 @@ jobs:
 
             current_version=$tag
 
-            #take the last 3 digits of the tag ex: 6.5
-            version=$(echo "${current_version: -3}")
+            #take the last version from tag ex: 6.5
+            version=$(echo "${current_version##*-v}") echo 
 
             #increment the version by 0.1
             new_version=$(echo $version 0.1 | awk '{printf "%.1f", $1 + $2}')
@@ -45,7 +45,7 @@ jobs:
             echo $release_tag
             
             #push new tag to git
-            git tag -a  $release_tag
+            git tag -a  $release_tag -m " "
         
             
 
