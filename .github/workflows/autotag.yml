@@ -39,7 +39,7 @@ jobs:
        env: 
           TAG: ${{ steps.step1.outputs.tag }}
        run: |
-            echo checktag: ${{ TAG }}
+            echo checktag: $TAG
             echo "::set-output name=version::$(echo "${$TAG#*-v}")" #extract version number from the latest tag ex: 6.5 
             echo tag: ${{ steps.step1.outputs.tag }}
        
