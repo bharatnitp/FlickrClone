@@ -58,4 +58,4 @@ jobs:
        run:  git tag -a  ${{ steps.step4.outputs.release_tag }} -m "Release tag" 
                     
      - name: Push new tag
-       run:  git push origin
+       run:  git push origin ${{ steps.step4.outputs.release_tag }}
