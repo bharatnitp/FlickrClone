@@ -34,13 +34,13 @@ jobs:
             echo "::set-output name=tag::$(git describe --tags $(git rev-list --tags --max-count=1))"
             echo git_tag: $(git describe --tags $(git rev-list --tags --max-count=1))
        
-     - name: Take the last version from tag
+     - name: Take the last version number from tag
        id:  "step2"
        env: 
           TAG: ${{ steps.step1.outputs.tag }}
        run: |
             echo "::set-output name=version::$(echo "${TAG#*-v}")" #extract version number from the latest tag ex: 6.5 
-            echo version: $(echo "${TAG#*-v}")"
+            echo version: $(echo "${TAG#*-v}")
        
      - name: Increment version
        id:  "step3"
