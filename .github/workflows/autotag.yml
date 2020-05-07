@@ -37,14 +37,14 @@ jobs:
      - name: Take the last version from tag
        id:  "step2"
        run: |
-            echo "::set-output name=version::$(echo "${${{ steps.step1.outputs.tag }}##*-v}")" #extract version number from the latest tag ex: 6.5 
+            echo "::set-output name=version::$(echo "${${{ steps.step1.outputs.tag }}#*-v}")" #extract version number from the latest tag ex: 6.5 
             echo tag: ${{ steps.step1.outputs.tag }}
        
      - name: Increment version
        id:  "step3"
        run: |
             echo "::set-output name=new_version::$(echo ${{ steps.step2.outputs.version }} 0.1 | awk '{printf "%.1f", $1 + $2}')"  #6.5 + 0.1 =  "6.6"
-            echo version:v${{ steps.step2.outputs.version }}
+            echo version:${{ steps.step2.outputs.version }} 
             
      - name: Generate new tag with current date
        id:  "step4"
