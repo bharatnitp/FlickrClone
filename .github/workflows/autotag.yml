@@ -29,32 +29,32 @@ jobs:
        run:  git pull origin
        
      - name: Get the latest tag from git
-       id:  "tags"
+       id:  "step1"
        run: |
             echo "::set-output name=tag::$(git describe --tags $(git rev-list --tags --max-count=1))"
             echo git_tag: $(git describe --tags $(git rev-list --tags --max-count=1))
        
      - name: Take the last version from tag
-       id:  "versions"
+       id:  "step2"
        run: |
-            echo "::set-output name=version::$(echo "${${{ steps.tags.outputs.tag }}##*-v}")" #extract version number from the latest tag ex: 6.5 
-            echo tag: ${{ steps.tags.outputs.tag }}
+            echo "::set-output name=version::$(echo "${${{ steps.step1.outputs.tag }}##*-v}")" #extract version number from the latest tag ex: 6.5 
+            echo tag: ${{ steps.step1.outputs.tag }}
        
      - name: Increment version
-       id:  "generate_new_version"
+       id:  "step3"
        run: |
-            echo "::set-output name=new_version::$(echo ${{ steps.versions.outputs.version }} 0.1 | awk '{printf "%.1f", $1 + $2}')"  #6.5 + 0.1 =  "6.6"
-            echo version:v${{ steps.versions.output.version }}
+            echo "::set-output name=new_version::$(echo ${{ steps.step2.outputs.version }} 0.1 | awk '{printf "%.1f", $1 + $2}')"  #6.5 + 0.1 =  "6.6"
+            echo version:v${{ steps.step2.outputs.version }}
             
      - name: Generate new tag with current date
-       id:  "generate_new_tag"
+       id:  "step4"
        run: |
-            echo "::set-output name=release_tag::$(echo "R-ATV-$(date -d "+330 min" +"%d.%m.%y")-v${{ steps.generate_new_version.output.new_version }}")"
-            echo new_version:${{ steps.generate_new_version.output.new_version }}
+            echo "::set-output name=release_tag::$(echo "R-ATV-$(date -d "+330 min" +"%d.%m.%y")-v${{ steps.step3.outputs.new_version }}")"
+            echo new_version:${{ steps.step3.outputs.new_version }}
             
      - name: Add new tag
-       run:  git tag -a  ${{ steps.generate_new_tag.output.release_tag }} -m "Release tag" 
-             echo release_tag:${{ steps.generate_new_tag.output.release_tag }}
+       run:  git tag -a  ${{ steps.step4.outputs.release_tag }} -m "Release tag" 
+             echo release_tag:${{ steps.step4.outputs.release_tag }}
                     
      - name: Push new tag
        run:  git push origin
