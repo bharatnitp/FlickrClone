@@ -11,7 +11,7 @@ jobs:
     pull-request-master-into-release:
      runs-on: ubuntu-latest
      
-     #if pull request is merged then only perform the below steps
+     #if pull request is merged then only perform below steps
      if: github.event.pull_request.merged == true
 
      steps:
@@ -26,7 +26,7 @@ jobs:
        
        - name: Get current date
          id: current_date
-         run: echo "::set-output name=date::$(date -d "${{ env.TIME_STAMP }} +330 min" +"%d-%b-%Y %H:%M:%S %p")" 
+         run: echo "::set-output name=date::$(date -d "${{ env.MERGED_AT }} +330 min" +"%d-%b-%Y %H:%M:%S %p")" 
 
        - name: pull-request (master into release)
          uses: repo-sync/pull-request@v2
@@ -50,7 +50,7 @@ jobs:
        
        - name: Get current date
          id: current_date
-         run: echo "::set-output name=date::$(date -d "${{ env.TIME_STAMP }} +330 min" +"%d-%b-%Y %H:%M:%S %p")" 
+         run: echo "::set-output name=date::$(date -d "${{ env.MERGED_AT }} +330 min" +"%d-%b-%Y %H:%M:%S %p")" 
       
        - name: pull-request (master into staging)
          uses: repo-sync/pull-request@v2
@@ -74,16 +74,17 @@ env:
     TARGET_BRANCH: ${{ github.base_ref }}
     AUTHOR_EMAIL: ${{ github.event.commits[0].author.email }}
     AUTHOR_USERNAME: ${{ github.event.commits[0].author.username }}
-    ASSIGNEES: $ {{ github.event.pull_request.assignees }}
-    URL: ${{ github.event.pull_request._links.html.href }}
+    ASSIGNEES: $ {{ join(github.event.pull_request.assignees.login, ', ') }}
+    URL: ${{ github.event.pull_request.html_url }}
         
 
     run: |
       echo $CONTEXT
       echo $ACTOR
-      echo $HEAD_REF
-      echo $BASE_REF
+      echo $MERGED_AT
+      echo $SOURCE_BRACNH
+      echo $TARGET_BRANCH
       echo $AUTHOR_EMAIL
-      echo $COMMIT_MESSAGE
-      echo $TIME_STAMP
+      echo $AUTHOR_USERNAME
+      echo $ASSIGNEES
       echo $URL
