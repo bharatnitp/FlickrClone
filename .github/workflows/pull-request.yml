@@ -11,7 +11,13 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-    
+      
+    - name: print environment variables 
+      run: |
+        echo source: ${{ github.head_ref }}
+        echo destination: ${{ github.ref }}
+        echo baseRef: ${{ github.base_ref }}  
+        
     - name: pull-request
       uses: repo-sync/pull-request@v2
       with:
@@ -36,5 +42,6 @@ env:
     COMMIT_MESSAGE: ${{ github.event.commits[0].message }}
     TIME_STAMP: ${{ github.event.commits[0].timestamp }}
     URL: ${{ github.event.commits[0].url }}
+    
     
     
