@@ -37,10 +37,10 @@ jobs:
      - name: Take the last version from tag
        id:  "step2"
        env: 
-          TAG: echo ${{ steps.step1.outputs.tag }}
+          TAG: ${{ steps.step1.outputs.tag }}
        run: |
             echo "::set-output name=version::$(echo "${TAG#*-v}")" #extract version number from the latest tag ex: 6.5 
-            echo tag: ${{ steps.step1.outputs.tag }}
+            echo tag: $TAG
        
      - name: Increment version
        id:  "step3"
@@ -56,7 +56,6 @@ jobs:
             
      - name: Add new tag
        run:  git tag -a  ${{ steps.step4.outputs.release_tag }} -m "Release tag" 
-             echo release_tag:${{ steps.step4.outputs.release_tag }}
                     
      - name: Push new tag
        run:  git push origin
