@@ -30,22 +30,30 @@ jobs:
        
      - name: Get the latest tag from git
        id:  "tags"
-       run: echo "::set-output name=tag::$(git describe --tags $(git rev-list --tags --max-count=1))"
+       run: echo "::set-output name=tag::$(echo "$(git describe --tags $(git rev-list --tags --max-count=1))")"
        
-     - name: Take the last version from tag ex:- "6.5"
+     - name: Take the last version from tag
        id:  "versions"
-       run: echo "::set-output name=version::$(echo "${ ${{ steps.tags.output.tag }}##*-v}")"
+       run: |
+            echo "::set-output name=version::$(echo "${ ${{ steps.tags.output.tag }}##*-v}")" #extract version number from the latest tag ex: 6.5 
+            echo ${{ steps.tags.output.tag }}
        
-     - name: Increment version by 0.1
+     - name: Increment version
        id:  "generate_new_version"
-       run: echo "::set-output name=new_version::$(echo ${{ steps.versions.output.version }} 0.1 | awk '{printf "%.1f", $1 + $2}')" # "6.6"
+       run: |
+            echo "::set-output name=new_version::$(echo ${{ steps.versions.output.version }} 0.1 | awk '{printf "%.1f", $1 + $2}')"  #6.5 + 0.1 =  "6.6"
+            echo ${{ steps.versions.output.version }}
              
      - name: Generate new tag with current date
        id: "generate_new_tag"
-       run: echo "::set-output name=release_tag::$(echo "R-ATV-$(date -d "+330 min" +"%d.%m.%y")-v${{ steps.generate_new_version.output.new_version }}")"
-       
+       run: |
+            echo "::set-output name=release_tag::$(echo "R-ATV-$(date -d "+330 min" +"%d.%m.%y")-v${{ steps.generate_new_version.output.new_version }}")"
+            echo ${{ steps.generate_new_version.output.new_version }}
+            
      - name: Add new tag
-       run:  git tag -a  ${{ steps.generate_new_tag.output.release_tag }} -m "Release tag" 
+       run:  |
+             git tag -a  ${{ steps.generate_new_tag.output.release_tag }} -m "Release tag" 
+             echo ${{ steps.generate_new_tag.output.release_tag }}
             
      - name: Push new tag
        run:  git push origin
