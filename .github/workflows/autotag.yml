@@ -37,9 +37,8 @@ jobs:
      - name: Take the last version from tag
        id:  "versions"
        run: |
-            TAG:${{ steps.tags.output.tag }}
-            echo "::set-output name=version::$(echo "${$TAG##*-v}")" #extract version number from the latest tag ex: 6.5 
-            echo tag: $TAG
+            echo "::set-output name=version::$(echo "${"${{ steps.tags.output.tag }}"##*-v}")" #extract version number from the latest tag ex: 6.5 
+            echo tag: ${{ steps.tags.output.tag }}
        
      - name: Increment version
        id:  "generate_new_version"
