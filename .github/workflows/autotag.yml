@@ -30,7 +30,9 @@ jobs:
        
      - name: Get the latest tag from git
        id:  "tags"
-       run: echo "::set-output name=tag::$(echo "$(git describe --tags $(git rev-list --tags --max-count=1))")"
+       run: |
+            echo "::set-output name=tag::$(echo "$(git describe --tags $(git rev-list --tags --max-count=1))")"
+            echo $(git describe --tags $(git rev-list --tags --max-count=1))
        
      - name: Take the last version from tag
        id:  "versions"
