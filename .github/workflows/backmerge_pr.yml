@@ -1,13 +1,19 @@
 on:
-  push:
+  pull_request:
     branches: [ master ]
+    types: [ closed ]
+    
     tags-ignore: 
         - '*'
+    
 
 jobs:
     pull-request-master-into-release:
      runs-on: ubuntu-latest
      
+     #if pull request is merged then only perform the below steps
+     if: github.event.pull_request.merged == true
+
      steps:
        - name: checkout all branches 
          uses: actions/checkout@v2
