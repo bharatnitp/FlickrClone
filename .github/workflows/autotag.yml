@@ -45,7 +45,7 @@ jobs:
        run: echo "::set-output name=release_tag::$(echo "R-ATV-$(date -d "+330 min" +"%d.%m.%y")-v${{ steps.generate_new_version.output.new_version }}")"
        
      - name: Add new tag
-       run:  git tag -a  $ {{ steps.generate_new_tag.output.release_tag }} -m "Release tag" 
+       run:  git tag -a  ${{ steps.generate_new_tag.output.release_tag }} -m "Release tag" 
             
      - name: Push new tag
        run:  git push origin
