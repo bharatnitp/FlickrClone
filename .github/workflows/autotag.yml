@@ -25,8 +25,8 @@ jobs:
      - name: Checkout master
        run:  git checkout master
        
-     - name: Git pull
-       run:  git pull origin
+     - name: Git fetch all tags from remote 
+       run:  git fetch --tags
        
      - name: Get the latest tag from git
        id:  "step1"
