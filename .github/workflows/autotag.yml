@@ -18,42 +18,34 @@ jobs:
        uses: fregante/setup-git-token@v1
        with:
         token: ${{ secrets.GITHUB_TOKEN }}
-       
-     - name: Push New Tag
-       run: |
-            
-            #git fetch 
-            git fetch -a
-            
-            #checkout master
-            git checkout master
-            
-            #git pull
-            git pull origin
-           
-            #get the latest tag from git
-            tag=$(echo "$(git describe --tags $(git rev-list --tags --max-count=1))")
-            echo tag: $tag
-
-            current_version=$tag
-
-            #take the last version from tag ex: 6.5
-            version=$(echo "${current_version##*-v}")
-            echo version: $version
-
-            #increment the version by 0.1
-            new_version=$(echo $version 0.1 | awk '{printf "%.1f", $1 + $2}')
-            echo new_version: $new_version
-
-            # new version with current date
-            release_tag=$(echo "R-ATV-$(date -d "+330 min" +"%d.%m.%y")-v$new_version")
-            echo release_tag: $release_tag
-            
-            #create a new tag
-            git tag -a  $release_tag -m "Release tag"
-            
-            #push tag to git
-            git push origin $release_tag
-            
         
-          
+     - name: Git fetch 
+       run:  git fetch -a
+    
+     - name: Checkout master
+       run:  git checkout master
+       
+     - name: Git pull
+       run:  git pull origin
+       
+     - name: Get the latest tag from git
+       id:  "tags"
+       run: echo "::set-output name=tag::$((git describe --tags $(git rev-list --tags --max-count=1)))"
+       
+     - name: Take the last version from tag ex:- "6.5"
+       id:  "versions"
+       run: echo "::set-output name=version::$(echo "${ ${{ steps.tags.output.tag }}##*-v}")"
+       
+     - name: Increment version by 0.1
+       id:  "generate_new_version"
+       run: echo "::set-output name=new_version::$(echo ${{ steps.versions.output.version }} 0.1 | awk '{printf "%.1f", $1 + $2}')" # "6.6"
+             
+     - name: Generate new tag with current date
+       id: "generate_new_tag"
+       run: echo "::set-output name=release_tag::$(echo "R-ATV-$(date -d "+330 min" +"%d.%m.%y")-v${{ steps.generate_new_version.output.new_version }}")"
+       
+     - name: Add new tag
+       run:  git tag -a  $ {{ steps.generate_new_tag.output.release_tag }} -m "Release tag" 
+            
+     - name: Push new tag
+       run:  git push origin
