@@ -70,12 +70,12 @@ env:
     CONTEXT: ${{ toJson(github) }}
     ACTOR:  ${{ github.actor }}
     MERGED_AT: ${{ github.event.pull_request.merged_at }}
-    SOURCE_BRACNH: ${{ github.head_ref }}
+    SOURCE_BRANCH: ${{ github.head_ref }}
     TARGET_BRANCH: ${{ github.base_ref }}
     AUTHOR_EMAIL: ${{ github.event.commits[0].author.email }}
     AUTHOR_USERNAME: ${{ github.event.commits[0].author.username }}
-    ASSIGNEES: ${{ join(github.event.pull_request.assignees.login, ', ') }}
-    PR_TITLE: ${{ github.event.pull_request.html_url }}
+    ASSIGNEES: ${{ join(github.event.pull_request.assignees.*.login, ', ') }}
+    PR_TITLE: ${{ github.event.pull_request.title }}
     URL: ${{ github.event.pull_request.html_url }}
         
 
@@ -90,3 +90,4 @@ env:
       echo $ASSIGNEES
       echo $PR_TITLE
       echo $URL
+
