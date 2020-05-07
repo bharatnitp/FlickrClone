@@ -40,19 +40,19 @@ jobs:
           TAG: ${{ steps.step1.outputs.tag }}
        run: |
             echo "::set-output name=version::$(echo "${TAG#*-v}")" #extract version number from the latest tag ex: 6.5 
-            echo tag: $TAG
+            echo version: ${{ steps.step2.outputs.version }}
        
      - name: Increment version
        id:  "step3"
        run: |
             echo "::set-output name=new_version::$(echo ${{ steps.step2.outputs.version }} 0.1 | awk '{printf "%.1f", $1 + $2}')"  #6.5 + 0.1 =  "6.6"
-            echo version:${{ steps.step2.outputs.version }} 
+            echo new_version:${{ steps.step3.outputs.new_version }}
             
      - name: Generate new tag with current date
        id:  "step4"
        run: |
             echo "::set-output name=release_tag::$(echo "R-ATV-$(date -d "+330 min" +"%d.%m.%y")-v${{ steps.step3.outputs.new_version }}")"
-            echo new_version:${{ steps.step3.outputs.new_version }}
+            echo release_tag: ${{ steps.step4.outputs.release_tag }}
             
      - name: Add new tag
        run:  git tag -a  ${{ steps.step4.outputs.release_tag }} -m "Release tag" 
